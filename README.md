@@ -11,3 +11,6 @@ hibernate-5.0.12.Final
 
 mysql-connector-java-5.1.48-bin
 
+測試環境：
+
+junit5
