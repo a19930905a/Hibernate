@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+    
+       
+    	<!-- 連結數據庫的基本信息 -->
+		<property name="connection.username">root</property>
+		<property name="connection.password">root</property>
+		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="connection.url">jdbc:mysql://localhost:3306/hibernate?characterEncoding=utf-8</property>
+		
+		<!-- hibernate 基本信息 -->
+		<property name="dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
+		<property name="show_sql">true</property>
+		<property name="format_sql">true</property>
+		<property name="hbm2ddl.auto">update</property>
+		
+		<!-- 啟用二級緩存 -->
+		<property name="cache.use_second_level_cache">true</property>
+		<!-- 配置二級緩存EHCache驅動 -->
+		<property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
+		<!-- query查詢緩存 -->
+		<property name="cache.use_query_cache">true</property>
+		
+		<!-- Mapper 關聯-->
+		<mapping resource="hibernate/hello/News.hbm.xml" />
+		<!-- 單向一對多 -->
+		<mapping resource="hibernate/ONEtoN/Customer.hbm.xml" />
+		<mapping resource="hibernate/ONEtoN/Order.hbm.xml" />
+		<!-- 雙向一對多 -->
+		<mapping resource="hibernate/ONEtoN/Double/Customer.hbm.xml" />
+		<mapping resource="hibernate/ONEtoN/Double/Order.hbm.xml" />
+    	<!-- 一對一 -->
+    	<mapping resource="hibernate/ONEtoONE/Manager.hbm.xml" />
+		<mapping resource="hibernate/ONEtoONE/Department.hbm.xml"/>
+		<mapping resource="hibernate/ONEtoONE/primary/Department.hbm.xml"/>
+		<mapping resource="hibernate/ONEtoONE/primary/Manager.hbm.xml"/>
+		<!-- 多對多 -->
+		<mapping resource="hibernate/NtoN/Category.hbm.xml" />
+		<mapping resource="hibernate/NtoN/Item.hbm.xml"/>
+		<!-- HQL -->
+		<mapping resource="hibernate/HQL/Employee.hbm.xml" />
+		<mapping resource="hibernate/HQL/MY_Department.hbm.xml" />
+    </session-factory>
+</hibernate-configuration>

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2019?~10??6?? ?W??4:58:54 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="hibernate.ONEtoN.Customer" table="CUSTOMER">
+        <id name="customer_id" type="java.lang.Integer">
+            <column name="CUSTOMER_ID" />
+            <generator class="native" />
+        </id>
+        <property name="customer_name" type="java.lang.String">
+            <column name="CUSTOMER_NAME" />
+        </property>
+    </class>
+</hibernate-mapping>

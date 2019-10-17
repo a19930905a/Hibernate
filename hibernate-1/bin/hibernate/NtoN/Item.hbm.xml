@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2019?~10??7?? ?U??4:01:00 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping package="hibernate.NtoN">
+    <class name="Item" table="ITEM">
+        <id name="I_id" type="java.lang.Integer">
+            <column name="I_ID" />
+            <generator class="native" />
+        </id>
+        <property name="I_name" type="java.lang.String">
+            <column name="I_NAME" />
+        </property>
+    </class>
+</hibernate-mapping>

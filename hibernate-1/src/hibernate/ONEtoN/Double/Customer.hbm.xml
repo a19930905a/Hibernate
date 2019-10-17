@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2019?~10??6?? ?W??4:58:54 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping package="hibernate.ONEtoN.Double">
+    <class name="Customer" table="CUSTOMER">
+        <id name="customer_id" type="java.lang.Integer">
+            <column name="CUSTOMER_ID" />
+            <generator class="native" />
+        </id>
+        <property name="customer_name" type="java.lang.String">
+            <column name="CUSTOMER_NAME" />
+        </property>
+        
+        <!-- 一對多關聯 -->
+        <!-- 配置 inverse : 指定哪方來維護關聯關係,設定為 true 時表示為被動方
+        	建議使"多"端為主動方
+        -->
+        <set name="orders" table="Orders"  >
+        	<key column="customer_id"></key>
+        	<one-to-many class="Order"/>
+        </set>
+    </class>
+</hibernate-mapping>

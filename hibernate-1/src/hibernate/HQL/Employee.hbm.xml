@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2019?~10??8?? ?W??10:38:14 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping package="hibernate.HQL">
+    <class name="Employee" table="EMPLOYEE">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="native" />
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="NAME" />
+        </property>
+        <property name="salary" type="java.lang.Integer">
+            <column name="SALARY" />
+        </property>
+        <property name="email" type="java.lang.String">
+            <column name="EMAIL" />
+        </property>
+        <many-to-one name="department" class="My_Department">
+            <column name="dep_ID" />
+        </many-to-one>
+    </class>
+    
+    <query name="salaryEmps">
+    <![CDATA[FROM Employee e Where e.salary > :minVal AND e.salary < :maxVal]]> 
+    </query>
+</hibernate-mapping>

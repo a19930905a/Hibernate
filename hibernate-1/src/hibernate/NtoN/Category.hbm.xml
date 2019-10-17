@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2019?~10??7?? ?U??4:01:00 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping package="hibernate.NtoN">
+    <class name="Category" table="CATEGORY">
+        <id name="C_id" type="java.lang.Integer">
+            <column name="C_ID" />
+            <generator class="native" />
+        </id>
+        <property name="C_name" type="java.lang.String">
+            <column name="C_NAME" />
+        </property>
+        <!-- N對N,需要有中間表對應 -->
+        <set name="items" table="Category_Item">
+            <key>
+                <column name="C_ID" />
+            </key>
+           	<many-to-many class="Item" column="I_ID"></many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>

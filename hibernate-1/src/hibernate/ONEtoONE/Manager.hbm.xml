@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2019?~10??7?? ?U??1:20:21 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="hibernate.ONEtoONE.Manager" table="MANAGER">
+        <id name="manager_id" type="java.lang.Integer">
+            <column name="MANAGER_ID" />
+            <generator class="native" />
+        </id>
+        <property name="manager_name" type="java.lang.String">
+            <column name="MANAGER_NAME" />
+        </property>
+        <!-- property-ref 可指定使用其他字段設定為關聯字段
+        
+        -->
+        <one-to-one name="department" class="hibernate.ONEtoONE.Department"
+       		property-ref="manager"></one-to-one>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2019?~10??6?? ?W??4:58:54 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping package="hibernate.ONEtoN">
+    <class name="Order" table="Orders">
+        <id name="order_number" type="java.lang.Integer">
+            <column name="ORDER_NUMBER" />
+            <generator class="native" />
+        </id>
+        <property name="order_name" type="java.lang.String">
+            <column name="ORDER_NAME" />
+        </property>
+        <!-- 多對一關聯 -->
+        <many-to-one name="customer" class="Customer" column="customer_id"></many-to-one>
+    </class>
+</hibernate-mapping>

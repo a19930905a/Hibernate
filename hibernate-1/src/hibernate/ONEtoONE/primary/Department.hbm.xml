@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2019?~10??7?? ?U??1:20:21 by Hibernate Tools 3.5.0.Final -->
+
+<!-- 一對一 -->
+<hibernate-mapping package="hibernate.ONEtoONE.primary">
+    <class name="Department" table="DEPARTMENT">
+        <id name="department_id" type="java.lang.Integer">
+            <column name="DEPARTMENT_ID" />
+            <!-- 主鍵利用外鍵生成 -->
+            <generator class="foreign">
+            	<!-- 指定使用哪個屬性的主鍵作為外鍵 -->
+            	<param name="property">manager</param>
+            </generator>
+        </id>
+        <property name="department_name" type="java.lang.String">
+            <column name="DEPARTMENT_NAME" />
+        </property>
+        <!-- 設定約束為true已表明存在外鍵與關聯表對應!! -->
+        <one-to-one name="manager" class="Manager" constrained="true"></one-to-one>
+	
+    </class>
+</hibernate-mapping>
